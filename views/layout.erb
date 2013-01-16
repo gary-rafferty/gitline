@@ -27,6 +27,11 @@
       }(document, /*debug*/ false));
     </script>
     <div class='container'>
+      <% if logged_in? %>
+        <a class='logout' href='/sessions/destroy'>Logout</a>
+      <% else %>
+        <a class='login' href='#'>Login</a>
+      <% end %>
       <%= yield %>
     </div>
   </body>
