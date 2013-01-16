@@ -12,3 +12,10 @@ desc 'Drop the MongoDB database'
 task :truncate do
   sh 'mongo gitbook_development --eval "db.dropDatabase()"'
 end
+
+desc 'Create the MongoDB indexes'
+task :index do
+  require './app'
+  Mongoid.load!('mongoid.yml', :development)
+  User.create_indexes
+end
