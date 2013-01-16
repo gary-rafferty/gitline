@@ -41,12 +41,15 @@ class GitBook < Sinatra::Base
     token = params[:token]
     email = params[:email]
 
-    user = User.new(uid:uid, email:email, token:token)
-    if(user.upsert)
+    user = User.find_or_initialize_by(uid: uid).tap do |user|
+      user.token = token
+      user.email = email
+    end
+    if user.save!
       session['access_token'] = user.token
       p user.inspect
     else
-      p user.errors.inspect
+      p.user.errors.inspect
     end
   end
 
