@@ -1,0 +1,18 @@
+production:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: gitbook
+development:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: gitbook_development
+test:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: gitbook_test
