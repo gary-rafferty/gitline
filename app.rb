@@ -12,6 +12,9 @@ class User
   validates :uid, presence: true
   validates :email, presence: true
   validates :token, presence: true
+
+  index({email: 1}, {unique: true, name: 'email_index'})
+  index({token: 1}, {unique: true, name: 'token_index'})
 end
 
 class GitBook < Sinatra::Base
