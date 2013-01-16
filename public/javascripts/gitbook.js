@@ -2,7 +2,28 @@ $(function() {
   $('.login').click(function() {
     whenAvailable('FB', function(fb) {
       fb.login(function(r) {
-        console.log(r);
+        if(r.authResponse) {
+          var response = r.authResponse;
+
+          var uid = response.userID;
+          var token = response.accessToken;
+          var email;
+
+          fb.api('/me',function(r) {
+            email = r.email;
+            $.ajax({
+              url:'/sessions/new',
+              type:'POST',
+              data:{uid:uid,token:token,email:email},
+              success:function(data) {
+                window.location.href = '/home';
+              },
+              error: function(data) {
+                //console.log(data);
+              }
+            });
+          });
+         }
       }, {
         scope: 'email,publish_stream'
       });
