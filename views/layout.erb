@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>GitBook</title>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link type='text/css' rel='stylesheet' href='stylesheets/gitbook.css' />
     <script type='text/javascript' src='javascripts/jquery-1.9.0.min.js'></script>
     <script type='text/javascript' src='javascripts/gitbook.js'></script>
@@ -27,6 +28,12 @@
       }(document, /*debug*/ false));
     </script>
     <div class='container'>
+      <div id='header'>
+        <h1 class='logo'>Git<span class='blue'>Book</span></h1>
+        <h2 class='punch'>
+          "The niftiest way to share your GitHub activity on <span class='blue'>Facebook</span>"
+        </h2>
+      </div>
       <% if logged_in? %>
         <a class='logout' href='/sessions/destroy'>Logout</a>
       <% else %>

@@ -1,6 +1,25 @@
 @import 'bourbon/bourbon';
 @import 'neat/neat';
 
+$lobster: 'Lobster', sans-serif;
+
 div.container {
   @include outer-container;
+}
+
+#header {
+  .logo {
+    font-family: $lobster;
+    font-size: 74px;
+    text-align:center;
+    line-height:14px;
+  }
+  .punch {
+    font-family: $lobster;
+    font-size: 37px;
+    text-align:center;
+  }
+  .blue {
+    color: #3B5998;
+  }
 }
