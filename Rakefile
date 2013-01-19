@@ -5,7 +5,7 @@ end
 
 desc 'Start the web server (thin)'
 task :server do
-  sh 'thin -R config.ru start'
+  sh 'shotgun --server=thin --port=3000 config.ru'
 end
 
 desc 'Drop the MongoDB database'
