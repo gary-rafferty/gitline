@@ -3,6 +3,10 @@
 
 $lobster: 'Lobster', sans-serif;
 
+body {
+  background-color:#eee;
+}
+
 div.container {
   @include outer-container;
 }

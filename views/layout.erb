@@ -3,6 +3,7 @@
   <head>
     <title>GitBook</title>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link type='text/css' rel='stylesheet' href='stylesheets/social.css' />
     <link type='text/css' rel='stylesheet' href='stylesheets/gitbook.css' />
     <script type='text/javascript' src='javascripts/jquery-1.9.0.min.js'></script>
     <script type='text/javascript' src='javascripts/gitbook.js'></script>
@@ -37,7 +38,7 @@
       <% if logged_in? %>
         <a class='logout' href='/sessions/destroy'>Logout</a>
       <% else %>
-        <a class='login' href='#'>Login</a>
+        <a class="btn-auth btn-facebook large login" href="#">Sign in with <b>Facebook</b></a>
       <% end %>
       <%= yield %>
     </div>
