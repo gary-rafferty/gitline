@@ -5,6 +5,8 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  has_many :repositories, dependent: :delete
+
   field :uid, type: Integer
   field :email, type: String
   field :token, type: String
@@ -15,6 +17,21 @@ class User
 
   index({email: 1}, {unique: true, name: 'email_index'})
   index({token: 1}, {unique: true, name: 'token_index'})
+end
+
+class Repository
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  belongs_to :user
+  has_many :hooks, dependent: :delete
+end
+
+class Hook
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  belongs_to :repository
 end
 
 class GitBook < Sinatra::Base
@@ -36,6 +53,8 @@ class GitBook < Sinatra::Base
   end
 
   get '/home' do
+    @user = User.where(token: session['access_token']).first
+    @repos= @user.repositories
     erb :home
   end
 
@@ -50,7 +69,6 @@ class GitBook < Sinatra::Base
     end
     if user.save!
       session['access_token'] = user.token
-      p user.inspect
     else
       p.user.errors.inspect
     end
