@@ -38,6 +38,7 @@ class GitBook < Sinatra::Base
 
   configure do
     enable :sessions
+    set :session_secret, "This needs to be set for Shotgun to work"
 
     Mongoid.load!('mongoid.yml')
   end
