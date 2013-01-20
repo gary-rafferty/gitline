@@ -1,3 +1,5 @@
+require 'rake/testtask'
+
 desc 'Start the watcher for sass compilation'
 task :watch do
   sh 'sass --watch public/stylesheets/sass/gitbook.css.scss:public/stylesheets/gitbook.css'
@@ -18,4 +20,10 @@ task :index do
   require './app'
   Mongoid.load!('mongoid.yml', :development)
   User.create_indexes
+end
+
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.test_files = FileList['test/unit/*.rb']
+  t.verbose = true
 end
