@@ -10,7 +10,8 @@ WIP, but the general flow of things is
 4. Applications provides the user with a post-receive url for GitHub
 5. When post-receive payloads are received, the system will either publish to Facebook timeline there and then, or else do a daily aggregation and publish via the CRON.
 
-![GitBook screeny](public/images/GitBook.png)
+![GitBook
+screeny](https://raw.github.com/gary-rafferty/gitbook/master/public/images/GitBook.png)
 
 
 ##Dev
