@@ -1,7 +1,4 @@
 <div class='container'>
-  <%# if @repos.empty? %>
-  <!--<h3 class='norepos'>You've not got any repos set up yet. Quickly set one up. It's really easy!<h3>-->
-  <%# end %>
   <div id='repos'>
     <ul>
       <% @repos.each do |repo| %>
@@ -12,9 +9,19 @@
       <li class='block'>
         <div class='panel new'>
           <h3>Hook in a new repo</h3>
-          <input type='text' name='repo' placeholder='username/repository' />
-          <br />
-          <input type='Submit' value='Create' />
+          <form method='post' action='#' name='newrepo'>
+            <input type='text' name='repo' placeholder='username/repository' />
+            <br />
+            <div class='theform'>
+              <input type='radio' name='freq' value='1' />
+              Daily digest notifications
+              <br />
+              <input type='radio' name='freq' value=2' />
+              Notifications for every push
+            </div>
+            <br />
+            <input type='Submit' value='Create' />
+          </form>
         </div>
       </li>
     </ul>

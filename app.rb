@@ -25,6 +25,22 @@ class Repository
 
   belongs_to :user
   has_many :hooks, dependent: :delete
+
+  field :short, type: String
+  field :url, type: String
+  field :webhook_url, type: String
+
+  validates :short, presence: true
+  validates :url, presence: true
+
+  validates :short, format: { with: /\S*\/\S*/ }
+
+  before_save do |document|
+    webhook_url = "http://gitbook.com/hooks/#{document._id}/new"
+    document.webhook_url = webhook_url
+  end
+
+  index({webhook_url: 1}, {unique: true, name: 'repo_webhook_index'})
 end
 
 class Hook
@@ -57,6 +73,11 @@ class GitBook < Sinatra::Base
     @user = User.where(token: session['access_token']).first
     @repos= @user.repositories
     erb :home
+  end
+
+  post '/repos/new' do
+    #validate the repo url and then save
+    #redirect to /home when done
   end
 
   post '/sessions/new' do
