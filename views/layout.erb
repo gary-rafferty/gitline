@@ -35,11 +35,11 @@
           "The niftiest way to share your GitHub activity on <span class='blue'>Facebook</span>"
         </h2>
       </div>
-      <% if logged_in? %>
-        <a class='logout' href='/sessions/destroy'>Logout</a>
-      <% else %>
-        <a class="btn-auth btn-facebook large login" href="#">Sign in with <b>Facebook</b></a>
-      <% end %>
+      <div class='action'>
+        <% unless logged_in? %>
+          <a class="btn-auth btn-facebook large login" href="#">Sign in with <b>Facebook</b></a>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </body>
