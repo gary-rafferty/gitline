@@ -1,1 +1,22 @@
-'Home'
+<div class='container'>
+  <%# if @repos.empty? %>
+  <!--<h3 class='norepos'>You've not got any repos set up yet. Quickly set one up. It's really easy!<h3>-->
+  <%# end %>
+  <div id='repos'>
+    <ul>
+      <% @repos.each do |repo| %>
+        <li class='block'>
+          <div class='panel repo'>The repo</div>
+        </li>
+      <% end %>
+      <li class='block'>
+        <div class='panel new'>
+          <h3>Hook in a new repo</h3>
+          <input type='text' name='repo' placeholder='username/repository' />
+          <br />
+          <input type='Submit' value='Create' />
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
