@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'mongoid'
+require 'httparty'
 
 class User
   include Mongoid::Document
@@ -76,8 +77,21 @@ class GitBook < Sinatra::Base
   end
 
   post '/repos/new' do
-    #validate the repo url and then save
-    #redirect to /home when done
+    content_type :json
+
+    short = params[:short]
+    freq = params[:freq]
+
+    endpoint = "https://api.github.com/repos/#{short}"
+    resp = JSON.parse(HTTParty.get(endpoint).body)
+    if resp.has_key? 'homepage'
+      # got a good response
+      # save and return a hook url
+      [200, 'OK'].to_json
+    else
+      # no repo found :(
+      [500, 'Meh'].to_json
+    end
   end
 
   post '/sessions/new' do
