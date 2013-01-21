@@ -81,15 +81,28 @@ class GitBook < Sinatra::Base
   post '/repos/new' do
     content_type :json
 
-    short = params[:short]
-    freq = params[:freq]
+    @user = User.where(token: session['access_token']).first
 
-    endpoint = "https://api.github.com/repos/#{short}"
-    resp = JSON.parse(HTTParty.get(endpoint).body)
-    if resp.has_key? 'homepage'
+    @short = params[:short]
+    @freq = params[:freq]
+
+    endpoint = "https://api.github.com/repos/#{@short}"
+    @resp = JSON.parse(HTTParty.get(endpoint).body)
+
+    if @resp.has_key? 'homepage'
       # got a good response
       # save and return a hook url
-      [200, 'OK'].to_json
+      repo = @user.repositories.build
+      repo.short = @short
+      repo.url = @resp['homepage']
+      repo.frequency = @freq
+
+      if repo.save
+        p repo.inspect
+        [200, 'OK'].to_json
+      else
+        [500, 'Meh'].to_json
+      end
     else
       # no repo found :(
       [500, 'Meh'].to_json
