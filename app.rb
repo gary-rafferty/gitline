@@ -30,9 +30,11 @@ class Repository
   field :short, type: String
   field :url, type: String
   field :webhook_url, type: String
+  field :frequency, type: Integer
 
   validates :short, presence: true
   validates :url, presence: true
+  validates :frequency, presence: true
 
   validates :short, format: { with: /\S*\/\S*/ }
 
