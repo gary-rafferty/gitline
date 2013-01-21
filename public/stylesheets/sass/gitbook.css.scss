@@ -51,9 +51,10 @@ div.container {
   font-size: 18px;
 }
 #repos {
+
   li.block {
-    @include span-columns(3);
-    @include omega(4n);
+    @include span-columns(4);
+    @include omega(3n);
   }
 
   .panel {
@@ -66,7 +67,13 @@ div.container {
   }
 
   .repo {
+    text-align:center;
+    color: $blue;
+    font-family: $cabin;
 
+    .url-font {
+      font-size: 11px;
+    }
   }
 
   .new {

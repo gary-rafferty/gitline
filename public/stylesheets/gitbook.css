@@ -58,10 +58,10 @@ div.container {
   display: block;
   float: left;
   margin-right: 2.35765%;
-  width: 23.23176%; }
+  width: 31.76157%; }
   #repos li.block:last-child {
     margin-right: 0; }
-  #repos li.block:nth-child(4n) {
+  #repos li.block:nth-child(3n) {
     margin-right: 0; }
 #repos .panel {
   height: 270px;
@@ -72,6 +72,12 @@ div.container {
   border-top-right-radius: 3px;
   -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.65);
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.65); }
+#repos .repo {
+  text-align: center;
+  color: #3b5998;
+  font-family: "Cabin", Helvetica, Arial, sans-serif; }
+  #repos .repo .url-font {
+    font-size: 11px; }
 #repos .new {
   text-align: center;
   color: #3b5998;

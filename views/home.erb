@@ -3,7 +3,11 @@
     <ul>
       <% @repos.each do |repo| %>
         <li class='block'>
-          <div class='panel repo'>The repo</div>
+          <div class='panel repo'>
+            <h3><%= repo.short %></h3>
+            <hr />
+            <p class='url-font'><%= repo.webhook_url %></p>
+          </div>
         </li>
       <% end %>
       <li class='block'>
