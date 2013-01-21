@@ -98,8 +98,7 @@ class GitBook < Sinatra::Base
       repo.frequency = @freq
 
       if repo.save
-        p repo.inspect
-        [200, 'OK'].to_json
+        redirect '/home'
       else
         [500, 'Meh'].to_json
       end
