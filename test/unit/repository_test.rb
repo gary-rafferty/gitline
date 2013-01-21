@@ -33,6 +33,12 @@ class RepositoryTest < MiniTest::Unit::TestCase
     refute_nil @repo.webhook_url
   end
 
+  def test_format_of_short
+    @repo.short = 'noslash'
+    refute @repo.valid?
+    assert_equal :short, @repo.errors.first.first
+  end
+
   def teardown
     Repository.all.delete
   end
