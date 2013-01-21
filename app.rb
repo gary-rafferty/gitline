@@ -24,7 +24,7 @@ class Repository
   include Mongoid::Timestamps
 
   belongs_to :user
-  has_many :hooks, dependent: :delete
+  has_many :payloads, dependent: :delete
 
   field :short, type: String
   field :url, type: String
@@ -43,7 +43,7 @@ class Repository
   index({webhook_url: 1}, {unique: true, name: 'repo_webhook_index'})
 end
 
-class Hook
+class Payload
   include Mongoid::Document
   include Mongoid::Timestamps
 
