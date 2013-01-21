@@ -92,7 +92,7 @@ class GitBook < Sinatra::Base
     if user.save!
       session['access_token'] = user.token
     else
-      p.user.errors.inspect
+      p user.errors.inspect
     end
   end
 
