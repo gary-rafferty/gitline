@@ -64,7 +64,7 @@ div.container {
   #repos li.block:nth-child(3n) {
     margin-right: 0; }
 #repos .panel {
-  height: 270px;
+  height: 290px !important;
   width: 100%;
   background-color: #fff;
   border: 4px solid #cccccc;
@@ -73,12 +73,60 @@ div.container {
   -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.65);
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.65); }
 #repos .repo {
+  position: relative;
   text-align: center;
   color: #3b5998;
-  font-family: "Cabin", Helvetica, Arial, sans-serif; }
+  font-family: "Cabin", Helvetica, Arial, sans-serif;
+  height: 100%; }
+  #repos .repo h3 {
+    color: #111; }
   #repos .repo .url-font {
     font-size: 11px; }
+  #repos .repo input[type='submit'] {
+    border: 1px solid #005d00;
+    border-bottom: 1px solid #004d00;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 0 0 #25e90c;
+    box-shadow: inset 0 1px 0 0 #25e90c;
+    color: white;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #00cc00;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00cc00), color-stop(50%, #009a00), color-stop(50%, #008100), color-stop(100%, #008600));
+    background-image: -webkit-linear-gradient(top, #00cc00 0%, #009a00 50%, #008100 50%, #008600 100%);
+    background-image: -moz-linear-gradient(top, #00cc00 0%, #009a00 50%, #008100 50%, #008600 100%);
+    background-image: -ms-linear-gradient(top, #00cc00 0%, #009a00 50%, #008100 50%, #008600 100%);
+    background-image: -o-linear-gradient(top, #00cc00 0%, #009a00 50%, #008100 50%, #008600 100%);
+    background-image: linear-gradient(top, #00cc00 0%, #009a00 50%, #008100 50%, #008600 100%);
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #003f00; }
+    #repos .repo input[type='submit']:hover:not(:disabled) {
+      cursor: pointer;
+      background-color: #00bd00;
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00bd00), color-stop(50%, #008e00), color-stop(50%, #007700), color-stop(100%, #007c00));
+      background-image: -webkit-linear-gradient(top, #00bd00 0%, #008e00 50%, #007700 50%, #007c00 100%);
+      background-image: -moz-linear-gradient(top, #00bd00 0%, #008e00 50%, #007700 50%, #007c00 100%);
+      background-image: -ms-linear-gradient(top, #00bd00 0%, #008e00 50%, #007700 50%, #007c00 100%);
+      background-image: -o-linear-gradient(top, #00bd00 0%, #008e00 50%, #007700 50%, #007c00 100%);
+      background-image: linear-gradient(top, #00bd00 0%, #008e00 50%, #007700 50%, #007c00 100%); }
+    #repos .repo input[type='submit']:active:not(:disabled) {
+      -webkit-box-shadow: inset 0 0 20px 0 #005800, 0 1px 0 white;
+      box-shadow: inset 0 0 20px 0 #005800, 0 1px 0 white; }
+    #repos .repo input[type='submit']:disabled {
+      opacity: 0.5;
+      cursor: not-allowed; }
+#repos .buttondiv {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 25px;
+  display: block;
+  margin: 0 auto; }
 #repos .new {
+  position: relative;
   text-align: center;
   color: #3b5998;
   font-family: "Cabin", Helvetica, Arial, sans-serif; }
@@ -88,7 +136,6 @@ div.container {
     width: 80%;
     text-align: center; }
   #repos .new input[type='submit'] {
-    margin-top: 15px;
     border: 1px solid #8a0000;
     border-bottom: 1px solid #810000;
     border-radius: 5px;
