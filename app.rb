@@ -112,8 +112,9 @@ class GitBook < Sinatra::Base
     # todo
   end
 
-  post '/hooks/new/:id' do |id|
-    # todo
+  post '/hooks/:id/new' do |id|
+    repository = Repository.where(_id: id).first
+    payload = JSON.parse(params[:payload])
   end
 
   post '/sessions/new' do
