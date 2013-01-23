@@ -108,6 +108,14 @@ class GitBook < Sinatra::Base
     end
   end
 
+  get '/repos/show/:id' do |id|
+    # todo
+  end
+
+  post '/hooks/new/:id' do |id|
+    # todo
+  end
+
   post '/sessions/new' do
     uid = params[:uid]
     token = params[:token]
