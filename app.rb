@@ -56,6 +56,11 @@ class Payload
   field :after, type: String
   field :ref, type: String
   field :commits, type: Array
+
+  validates :before, presence: true
+  validates :after, presence: true
+  validates :ref, presence: true
+  validates :commits, presence: true
 end
 
 class GitBook < Sinatra::Base
