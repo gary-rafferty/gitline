@@ -46,3 +46,17 @@ To truncate MongoDB
 ```
 rake truncate
 ``` 
+
+To send a sample payload to a repository
+
+```
+# rake payload[REPO_ID]
+
+rake payload[50fdbac236974c8983000001]
+```
+
+NB: ZSH users, like me, need to modify the call like this
+
+```
+rake 'payload[50fdbac236974c8983000001]'
+```
