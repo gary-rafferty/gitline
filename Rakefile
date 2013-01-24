@@ -27,3 +27,9 @@ Rake::TestTask.new do |t|
   t.test_files = FileList['test/unit/*.rb']
   t.verbose = true
 end
+
+desc 'Send a sample payload to a repository (by _id)'
+task :payload, :repo do |t,args|
+  repo = args[:repo]
+  sh "curl --data-urlencode payload@resources/sample_payload.json localhost:3000/hooks/#{repo}/new"
+end
