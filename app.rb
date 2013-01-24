@@ -51,6 +51,11 @@ class Payload
   include Mongoid::Timestamps
 
   belongs_to :repository
+
+  field :before, type: String
+  field :after, type: String
+  field :ref, type: String
+  field :commits, type: Array
 end
 
 class GitBook < Sinatra::Base
@@ -115,6 +120,24 @@ class GitBook < Sinatra::Base
   post '/hooks/:id/new' do |id|
     repository = Repository.where(_id: id).first
     payload = JSON.parse(params[:payload])
+
+    before = payload['before']
+    after = payload['after']
+    ref = payload['ref']
+    commits = payload['commits']
+
+    payload_obj = repository.payloads.build(
+      before: before,
+      after: after,
+      ref: ref,
+      commits: commits
+    )
+
+    if payload_obj.save
+      [200,'OK'].to_json
+    else
+      [500,'Error'].to_json
+    end
   end
 
   post '/sessions/new' do
