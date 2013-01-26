@@ -79,6 +79,10 @@ class GitBook < Sinatra::Base
   end
 
   get '/' do
+    if logged_in?
+      redirect '/home'
+    end
+
     erb :index
   end
 
