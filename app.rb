@@ -59,6 +59,10 @@ class Payload
   validates :after, presence: true
   validates :ref, presence: true
   validates :commits, presence: true
+
+  def pretty_commit
+    after[0...7]
+  end
 end
 
 class GitBook < Sinatra::Base
