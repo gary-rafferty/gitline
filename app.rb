@@ -119,7 +119,8 @@ class GitBook < Sinatra::Base
   end
 
   get '/repos/show/:id' do |id|
-    repository = Repository.where(_id: id).first
+    @repository = Repository.where(_id: id).first
+    @commits = @repository.payloads
 
     erb :show
   end
