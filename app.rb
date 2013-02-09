@@ -30,11 +30,9 @@ class Repository
   field :short, type: String
   field :url, type: String
   field :webhook_url, type: String
-  field :frequency, type: Integer
 
   validates :short, presence: true
   validates :url, presence: true
-  validates :frequency, presence: true
 
   validates :short, format: { with: /\S*\/\S*/ }
 
@@ -98,7 +96,6 @@ class GitBook < Sinatra::Base
     @user = User.where(token: session['access_token']).first
 
     @short = params[:short]
-    @freq = params[:freq]
 
     endpoint = "https://api.github.com/repos/#{@short}"
     @resp = JSON.parse(HTTParty.get(endpoint).body)
@@ -109,7 +106,6 @@ class GitBook < Sinatra::Base
       repo = @user.repositories.build
       repo.short = @short
       repo.url = @resp['homepage']
-      repo.frequency = @freq
 
       if repo.save
         redirect '/home'

@@ -4,8 +4,7 @@ class RepositoryTest < MiniTest::Unit::TestCase
   def setup
     @repo = Repository.new(
       short:'gary/raff',
-      url:'http://github.com/gary/raff',
-      frequency: 1
+      url:'http://github.com/gary/raff'
     )
   end
 
@@ -19,12 +18,6 @@ class RepositoryTest < MiniTest::Unit::TestCase
     @repo.url = nil
     refute @repo.valid?
     assert_equal :url, @repo.errors.first.first
-  end
-
-  def test_that_frequency_is_required
-    @repo.frequency = nil
-    refute @repo.valid?
-    assert_equal :frequency, @repo.errors.first.first
   end
 
   def test_persistence_and_before_save_hook

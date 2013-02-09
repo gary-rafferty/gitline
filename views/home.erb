@@ -11,12 +11,6 @@
               as your GitHub post-receive hook URL
             </p>
             <p class='url-font'><%= repo.webhook_url %></p>
-            <p class='payload-count'><%= repo.payloads.count %> hooks received</p>
-            <% if repo.frequency == 1 %>
-              <p class='freq'>Daily digest notifications</p>
-            <% else %>
-              <p class='freq'>Notifications for every push</p>
-            <% end %>
             <div class='buttondiv'>
               <input type='Submit' value='View Activity' />
             </div>
@@ -28,14 +22,6 @@
           <h3>Hook in a new repo</h3>
           <form method='post' action='/repos/new' name='newrepo'>
             <input type='text' name='short' placeholder='username/repository' />
-            <br />
-            <div class='theform'>
-              <input type='radio' name='freq' value='1' />
-              Daily digest notifications
-              <br />
-              <input type='radio' name='freq' value=2' />
-              Notifications for every push
-            </div>
             <br />
             <div class='buttondiv'>
               <input type='Submit' value='Create Repo' />
