@@ -119,7 +119,9 @@ class GitBook < Sinatra::Base
   end
 
   get '/repos/show/:id' do |id|
-    # todo
+    repository = Repository.where(_id: id).first
+
+    erb :show
   end
 
   post '/hooks/:id/new' do |id|
