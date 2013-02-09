@@ -121,3 +121,18 @@ div.container {
     margin-top: 15px;
   }
 }
+#reposhow {
+  h1 {
+    font-family: $cabin;
+    color: $blue;
+    text-align:center;
+  }
+  #commitlist {
+    @include span-columns(8);
+    @include shift(2);
+    background: #fff;
+    border:1px solid #ccc;
+    @include border-top-radius(3px);
+    @include box-shadow(0 0 2px 1px hsla(0, 0%, 0%, 0.65));
+  }
+}

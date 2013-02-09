@@ -177,3 +177,22 @@ div.container {
   text-align: left; }
 #repos .theform input[type='radio'] {
   margin-top: 15px; }
+
+#reposhow h1 {
+  font-family: "Cabin", Helvetica, Arial, sans-serif;
+  color: #3b5998;
+  text-align: center; }
+#reposhow #commitlist {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%;
+  background: #fff;
+  border: 1px solid #cccccc;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.65); }
+  #reposhow #commitlist:last-child {
+    margin-right: 0; }
