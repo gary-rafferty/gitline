@@ -1,0 +1,28 @@
+<div class='container'>
+  <div id='reposhow'>
+    <h1><%= @repository.short %></h1>
+    <div id='commitlist'>
+      <h3 class='commitsheader'>Received <%= @commits.length %> commits</h3>
+      <div class='commitcolumns'>
+        <div class='commitshaheader'>Pretty SHA</div>
+        <div class='commitmessageheader'>Commit Message</div>
+        <div class='committimeheader'>When</div>
+      </div>
+      <% @commits.each do |commit| %>
+        <div class='commititem'>
+          <div class='commitsha'>
+            <p>
+              <a href='<%= commit.commits.first['url']%>'><%= commit.pretty_commit %></a>
+            </p>
+          </div>
+          <div class='commitmessage'>
+            <p><%= commit.commits.first['message'] %></p>
+          </div>
+          <div class='committime'>
+            <p><%= commit.updated_at %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
