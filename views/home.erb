@@ -7,12 +7,12 @@
             <h3><%= repo.short %></h3>
             <hr />
             <p>
-              <a href='https://help.github.com/articles/post-receive-hooks' target='_blank'>Add this</a> 
-              as your GitHub post-receive hook URL
+              Add the URL below as your 
+              <a href='https://help.github.com/articles/post-receive-hooks' target='_blank'>post-receive hook</a>
             </p>
             <p class='url-font'><%= repo.webhook_url %></p>
             <div class='buttondiv'>
-              <input type='Submit' value='View Activity' />
+              <a href='/repos/show/<%= repo.id %>'><input type='Submit' value='View Activity' /></a>
             </div>
           </div>
         </li>
