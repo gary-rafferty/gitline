@@ -31,8 +31,6 @@ class Repository
   field :webhook_url, type: String
 
   validates :short, presence: true
-  validates :url, presence: true
-
   validates :short, format: { with: /\S*\/\S*/ }
 
   before_save do |document|
@@ -108,7 +106,6 @@ class GitBook < Sinatra::Base
       # save and return a hook url
       repo = @user.repositories.build
       repo.short = @short
-      repo.url = @resp['homepage']
 
       if repo.save
         redirect '/home'
