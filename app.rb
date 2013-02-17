@@ -159,15 +159,18 @@ class GitBook < Sinatra::Base
   end
 
   post '/sessions/new' do
-    p params.inspect
     uid = params[:uid]
     token = params[:token]
     email = params[:email]
 
     user = User.find_or_initialize_by(uid: uid).tap do |u|
+      p 'in the block'
       u.token = token
       u.email = email
     end
+
+    p user
+
     if user.save!
       session['access_token'] = user.token
     else
