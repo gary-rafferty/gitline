@@ -169,8 +169,6 @@ class GitBook < Sinatra::Base
       u.email = email
     end
 
-    p user
-
     if user.save!
       session['access_token'] = user.token
     else
