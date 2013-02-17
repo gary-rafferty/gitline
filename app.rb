@@ -28,7 +28,6 @@ class Repository
   has_many :payloads, dependent: :delete
 
   field :short, type: String
-  field :url, type: String
   field :webhook_url, type: String
 
   validates :short, presence: true

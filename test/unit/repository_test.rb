@@ -14,12 +14,6 @@ class RepositoryTest < MiniTest::Unit::TestCase
     assert_equal :short, @repo.errors.first.first
   end
 
-  def test_that_url_is_required
-    @repo.url = nil
-    refute @repo.valid?
-    assert_equal :url, @repo.errors.first.first
-  end
-
   def test_persistence_and_before_save_hook
     assert_nil @repo.webhook_url
     assert @repo.save
