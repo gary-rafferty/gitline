@@ -7,8 +7,8 @@ gem 'bourbon'
 gem 'neat'
 
 gem 'httparty'
+gem 'thin'
 
 group :development do
   gem 'shotgun'
-  gem 'thin'
 end
