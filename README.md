@@ -6,9 +6,8 @@ WIP, but the general flow of things is
 
 1. User authenticates the application using the JavaScript SDK
 2. User then enters the link to their repository, in short form e.g 'gary-rafferty/gitline'
-3. User decides whether publishing to their Facebook timeline should be per-push or just a daily digest
 4. Applications provides the user with a post-receive url for GitHub
-5. When post-receive payloads are received, the system will either publish to Facebook timeline there and then, or else do a daily aggregation and publish via the CRON.
+5. When post-receive payloads are received, the system will then publish to Facebook timeline
 
 ![GitBook
 screeny](https://raw.github.com/gary-rafferty/gitline/master/public/images/GitBook.png)
