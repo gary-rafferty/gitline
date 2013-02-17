@@ -113,11 +113,11 @@ class GitBook < Sinatra::Base
       if repo.save
         redirect '/home'
       else
-        [500, 'Meh'].to_json
+        [500, 'Could not save the repo'].to_json
       end
     else
       # no repo found :(
-      [500, 'Meh'].to_json
+      [500, 'Incomplete API response'].to_json
     end
   end
 
