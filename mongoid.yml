@@ -1,9 +1,11 @@
 production:
   sessions:
     default:
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['MONGOHQ_URL'] %>
       database: gitbook
+      options:
+        skip_version_check: true
+        safe: true
 development:
   sessions:
     default:
