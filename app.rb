@@ -178,5 +178,10 @@ class GitBook < Sinatra::Base
     session.clear
     redirect '/'
   end
+
+  get '/pp' do
+    erb :pp
+  end
+
   run! if app_file == $0
 end
