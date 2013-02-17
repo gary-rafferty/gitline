@@ -142,6 +142,14 @@ class GitBook < Sinatra::Base
     )
 
     if payload_obj.save
+      token = repository.user.token
+      path  = "http://gitline.herokuapp.com/commits/#{payload_obj.id}"
+      hort = repository.short
+
+      # send off a quick post request to the graph api
+      cmd = "curl -X POST -F 'access_token=#{token}' -F 'commit=#{path}' -F 'repository=#{short}' -F 'fb:explicitly_shared=true' https://graph.facebook.com/me/gitline:Push"
+      system(cmd)
+
       [200,'OK'].to_json
     else
       [500,'Error'].to_json
