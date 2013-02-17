@@ -266,6 +266,8 @@ div.container {
       width: 48.82117%; }
       #reposhow #commitlist .commititem .commitmessage:last-child {
         margin-right: 0; }
+      #reposhow #commitlist .commititem .commitmessage a {
+        color: #3b5998; }
     #reposhow #commitlist .commititem .committime {
       display: block;
       float: left;
