@@ -37,7 +37,7 @@ class Repository
   validates :short, format: { with: /\S*\/\S*/ }
 
   before_save do |document|
-    webhook_url = "http://gitbook.com/hooks/#{document._id}/new"
+    webhook_url = "http://gitline.herokuapp.com/hooks/#{document._id}/new"
     document.webhook_url = webhook_url
   end
 
