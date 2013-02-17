@@ -152,6 +152,16 @@ class GitBook < Sinatra::Base
     end
   end
 
+  get '/commits/:id' do |id|
+    @payload = Payload.where(_id: id).first
+
+    if @payload
+      erb :commit, :layout => :og_layout
+    else
+      [500, 'No Commit'].to_json
+    end
+  end
+
   post '/sessions/new' do
     uid = params[:uid]
     token = params[:token]
