@@ -19,7 +19,7 @@ $(function() {
                 window.location.href = '/home';
               },
               error: function(data) {
-                //console.log(data);
+                console.log(data);
               }
             });
           });
