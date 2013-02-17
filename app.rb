@@ -159,6 +159,7 @@ class GitBook < Sinatra::Base
   end
 
   post '/sessions/new' do
+    p params.inspect
     uid = params[:uid]
     token = params[:token]
     email = params[:email]
