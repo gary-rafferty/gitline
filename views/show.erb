@@ -16,7 +16,7 @@
             </p>
           </div>
           <div class='commitmessage'>
-            <p><%= commit.commits.first['message'] %></p>
+            <p><a href='/commits/<%= commit.id%>'><%= commit.commits.first['message'] %></a></p>
           </div>
           <div class='committime'>
             <p><%= commit.updated_at %></p>
