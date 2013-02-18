@@ -147,7 +147,7 @@ class GitBook < Sinatra::Base
       short = repository.short
 
       # send off a quick post request to the graph api
-      cmd = "curl -X POST -F 'access_token=#{token}' -F 'commit=#{path}' -F 'repository=#{short}' https://graph.facebook.com/me/gitline:Push"
+      cmd = "curl -X POST -F 'access_token=#{token}' -F 'commit=#{path}' -F 'repository=#{short}' https://graph.facebook.com/me/gitline:push"
       system(cmd)
 
       [200,'OK'].to_json
