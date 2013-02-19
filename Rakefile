@@ -33,3 +33,9 @@ task :payload, :repo do |t,args|
   repo = args[:repo]
   sh "curl --data-urlencode payload@resources/sample_payload.json localhost:3000/hooks/#{repo}/new"
 end
+
+desc 'Send a sample payload to a repository on the Heroku server'
+task :heroku_payload, :repo do |t,args|
+  repo = args[:repo]
+  sh "curl --data-urlencode payload@resources/sample_payload.json http://gitline.herokuapp.com/hooks/#{repo}/new"
+end

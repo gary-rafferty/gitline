@@ -148,10 +148,11 @@ class GitBook < Sinatra::Base
 
       # send off a quick post request to the graph api
       Thread.new do
-        HTTParty.post(
+        ret = HTTParty.post(
           'https://graph.facebook.com/me/gitline:push',
           body: {access_token: token, repository: short, commit: path}
         )
+        p ret.inspect
       end
 
       [200,'OK'].to_json
