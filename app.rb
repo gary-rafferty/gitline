@@ -150,7 +150,7 @@ class GitBook < Sinatra::Base
       Thread.new do
         HTTParty.post(
           'https://graph.facebook.com/me/gitline:push',
-          query: {access_token: token, repository: short, commit: path}
+          body: {access_token: token, repository: short, commit: path}
         )
       end
 
