@@ -5,6 +5,7 @@
     <meta property="og:url" content="http://gitline.herokuapp.com/commits/<%= @payload.id %>" />
     <meta property="og:title" content="<%= @payload.pretty_commit %>" /> 
     <meta property="og:description" content="<%= @payload.commits.first['message']%>" /> 
+    <meta property="og:repository" content="<%= @payload.repository.id %>" /> 
     <meta property="og:image" content="https://raw.github.com/gary-rafferty/gitline/master/public/images/155x100.png" />
   </head>
 </html>
