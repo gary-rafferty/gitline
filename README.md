@@ -59,3 +59,9 @@ NB: ZSH users, like me, need to modify the call like this
 ```
 rake 'payload[50fdbac236974c8983000001]'
 ```
+
+To send a sample payload to a repository on the Heroku server
+
+```
+rake 'heroku_payload[50fdbac236974c8983000001]'
+```
