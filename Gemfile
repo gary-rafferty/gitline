@@ -9,8 +9,12 @@ gem 'bourbon'
 gem 'neat'
 
 gem 'httparty'
-gem 'thin'
 
 group :development do
+  gem 'thin'
   gem 'shotgun'
+end
+
+group :production do
+  gem 'unicorn'
 end
